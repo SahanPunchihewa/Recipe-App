@@ -8,5 +8,8 @@ router.get("/", (req, res, next) => {
 	next();
 });
 
+router.post("/user/register", controller.registerUser);
+router.post("/user/login", controller.loginUser);
+
 
 export default router;
