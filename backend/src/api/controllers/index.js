@@ -1,17 +1,8 @@
-import {
-    registerUser,
-    loginUser,
+import { registerUser, loginUser } from "./User.controller";
 
-} from "./User.controller";
-
-import {
-    
-
-} from "./Recipe.controller"
-
+import {} from "./Recipe.controller";
 
 export default {
-    registerUser,
-    loginUser,
-    
-}
+	registerUser,
+	loginUser,
+};
