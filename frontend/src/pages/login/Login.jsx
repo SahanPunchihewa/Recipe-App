@@ -44,16 +44,9 @@ const Login = () => {
 	return (
 		<div className="flex items-center justify-center min-h-screen bg-gray-100">
 			<div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
-				{/* Logo */}
 				<div className="flex justify-center mb-6">
-					<img
-						src="/logo.png" // Replace this with your actual logo path
-						alt="Logo"
-						className="h-16"
-					/>
+					<img src="/logo.png" alt="Logo" className="h-16" />
 				</div>
-
-				{/* Login Form */}
 				<h2 className="text-2xl font-roboto mb-6">Login</h2>
 				<form onSubmit={handleSubmit} className="space-y-4">
 					{/* Email Input */}
@@ -95,8 +88,6 @@ const Login = () => {
 						</label>
 						<p className="mt-1 text-xs text-red-600">{passwordError}</p>
 					</div>
-
-					{/* Sign In Button */}
 					<div>
 						<button
 							type="submit"
@@ -105,16 +96,12 @@ const Login = () => {
 							Sign In
 						</button>
 					</div>
-
-					{/* Error Message */}
 					<p className="text-center text-sm text-red-600">Your password or username is incorrect</p>
 				</form>
-
-				{/* Create Account */}
 				<div className="mt-6 text-center">
 					<p className="text-sm">
 						Don't have an account?{" "}
-						<Link to="/register" className="text-pink-500 font-medium">
+						<Link to="/user/register" className="text-pink-500 font-medium">
 							Create an account
 						</Link>
 					</p>

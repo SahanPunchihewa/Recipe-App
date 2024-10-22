@@ -12,6 +12,10 @@ const RecipeSchema = new mongoose.Schema(
 		},
 		strCategoryDescription: {
 			type: String,
+			required: false,
+		},
+		strMeal: {
+			type: String,
 			required: true,
 		},
 		email: {
