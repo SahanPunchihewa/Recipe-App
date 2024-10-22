@@ -12,10 +12,10 @@ export const registerUser = async (request, response, next) => {
 		next();
 	} else {
 		const user = {
-		    firstName: request.body.firstName,
-            lastName: request.body.lastName,
+			firstName: request.body.firstName,
+			lastName: request.body.lastName,
 			email: request.body.email,
-            phoneNumber: request.body.phoneNumber,
+			phoneNumber: request.body.phoneNumber,
 			password: request.body.password,
 			permissionLevel: request.body.permissionLevel,
 		};
@@ -45,9 +45,9 @@ export const loginUser = async (request, response, next) => {
 				const data = {
 					_id: user._id,
 					firstName: user.firstName,
-                    lastName: user.lastName,
+					lastName: user.lastName,
 					email: user.email,
-                    phoneNumber: user.phoneNumber,
+					phoneNumber: user.phoneNumber,
 					token: authToken,
 					permissionLevel: user.permissionLevel,
 				};
