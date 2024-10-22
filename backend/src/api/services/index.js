@@ -1,8 +1,10 @@
 import { insertUser, loginUser } from "./User.service";
 
-import {} from "./Recipe.service";
+import { insertLikeRecipe, getLikedRecipe } from "./Recipe.service";
 
 export default {
 	insertUser,
 	loginUser,
+	insertLikeRecipe,
+	getLikedRecipe,
 };

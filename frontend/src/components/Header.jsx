@@ -31,7 +31,7 @@ const Header = () => {
 						<Link to="/user/food-items" className="hover:text-gray-700">
 							HOME
 						</Link>
-						<Link to="#" className="font-semibold text-black">
+						<Link to="/user/favourite-foods" className="font-semibold text-black">
 							FAVOURITE
 						</Link>
 					</nav>

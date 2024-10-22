@@ -1,13 +1,13 @@
 import React from "react";
 import FoodItems from "./FoodItems";
-import { RecipeExternalProvider } from "../../contexts/RecipeExternalContext";
+import { RecipeProvider } from "../../contexts/RecipeContext";
 
 const index = () => {
 	return (
 		<>
-			<RecipeExternalProvider>
+			<RecipeProvider>
 				<FoodItems />
-			</RecipeExternalProvider>
+			</RecipeProvider>
 		</>
 	);
 };
