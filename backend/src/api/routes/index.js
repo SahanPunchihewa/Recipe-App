@@ -10,6 +10,7 @@ router.get("/", (req, res, next) => {
 
 router.post("/user/register", controller.registerUser);
 router.post("/user/login", controller.loginUser);
+router.get(":category", controller.fetchRecipesByCategory);
 
 
 export default router;
