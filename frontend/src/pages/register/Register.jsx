@@ -1,19 +1,12 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (password !== confirmPassword) {
-      setErrorMessage("The password does not match");
-    } else {
-      setErrorMessage("");
-      // Handle form submission
-    }
-  };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -21,17 +14,17 @@ const Register = () => {
         {/* Logo */}
         <div className="flex justify-center">
           <img
-            src="/logo.png" // Replace with your actual logo path
+            src="/logo.png"
             alt="Logo"
-            className="h-24"
+            className="h-16"
           />
         </div>
 
         {/* Register Form */}
-        <h2 className="text-2xl font-roboto mb-20">Register</h2>
-        <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4">
+        <h2 className="text-2xl font-roboto mb-6">Register</h2>
+        <form  className="grid grid-cols-2 gap-4">
           {/* First Name */}
-          <div className="relative">
+          <div className="relative mb-3">
             <label
               htmlFor="firstName"
               className="absolute left-3 -top-2.5 bg-white px-1 text-sm text-gray-500 peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:text-gray-600 peer-focus:text-sm transition-all"
@@ -45,6 +38,7 @@ const Register = () => {
               placeholder="First name"
               required
             />
+            <p className="mt-1 text-xs text-red-600">please enter email</p>
           </div>
 
           {/* Last Name */}
@@ -62,10 +56,11 @@ const Register = () => {
               placeholder="Last name"
               required
             />
+            <p className="mt-1 text-xs text-red-600">please enter email</p>
           </div>
 
           {/* Email Input */}
-          <div className="relative">
+          <div className="relative mb-3">
             <label
               htmlFor="email"
               className="absolute left-3 -top-2.5 bg-white px-1 text-sm text-gray-500 peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:text-gray-600 peer-focus:text-sm transition-all"
@@ -79,6 +74,7 @@ const Register = () => {
               placeholder="abc@gmail.com"
               required
             />
+            <p className="mt-1 text-xs text-red-600">please enter email</p>
           </div>
 
           {/* Phone Number */}
@@ -96,10 +92,11 @@ const Register = () => {
               placeholder="011 2222 333"
               required
             />
+            <p className="mt-1 text-xs text-red-600">please enter email</p>
           </div>
 
           {/* Password */}
-          <div className="relative">
+          <div className="relative mb-3">
             <label
               htmlFor="password"
               className="absolute left-3 -top-2.5 bg-white px-1 text-sm text-gray-500 peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:text-gray-600 peer-focus:text-sm transition-all"
@@ -108,9 +105,7 @@ const Register = () => {
             </label>
             <input
               type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              id="password" 
               className="peer mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm"
               required
             />
@@ -127,14 +122,12 @@ const Register = () => {
             <input
               type="password"
               id="confirmPassword"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
               className="peer mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm"
               required
             />
-            {errorMessage && (
-              <p className="mt-1 text-xs text-red-600">{errorMessage}</p>
-            )}
+            
+              <p className="mt-1 text-xs text-red-600"></p>
+           
           </div>
 
           {/* Create Account Button */}
@@ -151,9 +144,9 @@ const Register = () => {
           <div className="col-span-2 mt-6 text-center">
             <p className="text-sm">
               Already have an account?{" "}
-              <a href="#" className="text-pink-500 font-medium">
+              <Link to="/" className="text-pink-500 font-medium">
                 Login
-              </a>
+              </Link>
             </p>
           </div>
         </form>

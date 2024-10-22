@@ -5,7 +5,7 @@ import {
 } from "./User.controller";
 
 import {
-    fetchRecipesByCategory,
+    
 
 } from "./Recipe.controller"
 
@@ -13,5 +13,5 @@ import {
 export default {
     registerUser,
     loginUser,
-    fetchRecipesByCategory,
+    
 }

@@ -1,4 +1,4 @@
-import Home from "./home";
+import Login from "./login";
 import Register from "./register";
 import FoodItems from "./food-items";
 import Header from "../components/Header";
@@ -7,7 +7,7 @@ import Header from "../components/Header";
 
 export {
 
-    Home,
+    Login,
     Register,
     FoodItems,
     Header
