@@ -10,15 +10,12 @@ const Register = () => {
 	return (
 		<div className="flex items-center justify-center min-h-screen bg-gray-100">
 			<div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-lg">
-				{/* Logo */}
 				<div className="flex justify-center">
 					<img src="/logo.png" alt="Logo" className="h-16" />
 				</div>
 
-				{/* Register Form */}
 				<h2 className="text-2xl font-roboto mb-6">Register</h2>
 				<form className="grid grid-cols-2 gap-4">
-					{/* First Name */}
 					<div className="relative mb-3">
 						<label
 							htmlFor="firstName"
@@ -35,8 +32,6 @@ const Register = () => {
 						/>
 						<p className="mt-1 text-xs text-red-600">please enter email</p>
 					</div>
-
-					{/* Last Name */}
 					<div className="relative">
 						<label
 							htmlFor="lastName"
@@ -54,7 +49,6 @@ const Register = () => {
 						<p className="mt-1 text-xs text-red-600">please enter email</p>
 					</div>
 
-					{/* Email Input */}
 					<div className="relative mb-3">
 						<label
 							htmlFor="email"
@@ -72,7 +66,6 @@ const Register = () => {
 						<p className="mt-1 text-xs text-red-600">please enter email</p>
 					</div>
 
-					{/* Phone Number */}
 					<div className="relative">
 						<label
 							htmlFor="phone"
@@ -90,7 +83,6 @@ const Register = () => {
 						<p className="mt-1 text-xs text-red-600">please enter email</p>
 					</div>
 
-					{/* Password */}
 					<div className="relative mb-3">
 						<label
 							htmlFor="password"
@@ -105,8 +97,6 @@ const Register = () => {
 							required
 						/>
 					</div>
-
-					{/* Confirm Password */}
 					<div className="relative">
 						<label
 							htmlFor="confirmPassword"
@@ -123,8 +113,6 @@ const Register = () => {
 
 						<p className="mt-1 text-xs text-red-600"></p>
 					</div>
-
-					{/* Create Account Button */}
 					<div className="col-span-2">
 						<button
 							type="submit"
@@ -133,8 +121,6 @@ const Register = () => {
 							Create Account
 						</button>
 					</div>
-
-					{/* Already have an account */}
 					<div className="col-span-2 mt-6 text-center">
 						<p className="text-sm">
 							Already have an account?{" "}

@@ -1,16 +1,25 @@
 import { createContext, useState, useEffect, useCallback } from "react";
 import RecipeAPI from "./api/RecipeAPI";
+import { makeToast } from "../components";
 
 const RecipeContext = createContext();
 
 export function RecipeProvider({ children }) {
-	const [recipes, setRecipes] = useState([]); // For fetched recipe categories
-	const [likedRecipes, setLikedRecipes] = useState([]); // For liked recipes
+	const [recipes, setRecipes] = useState([]);
+	const [likedRecipes, setLikedRecipes] = useState([]);
 	const [foodData, setFoodData] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState(null);
+	const [recipe, setRecipe] = useState({
+		strCategory: "",
+		strCategoryThumb: "",
+		strCategoryDescription: "",
+		email: "",
+		strMeal: "",
+		status: "",
+	});
 
-	// Fetch all recipe categories when the component mounts
+	// Fetch all recipe categories
 	useEffect(() => {
 		const fetchCategories = async () => {
 			try {
@@ -25,7 +34,6 @@ export function RecipeProvider({ children }) {
 		fetchCategories();
 	}, []);
 
-	// Memoized function to fetch food data based on selected category
 	const fetchFoodData = useCallback(async (selectedCategory) => {
 		setIsLoading(true);
 		setError(null);
@@ -35,7 +43,7 @@ export function RecipeProvider({ children }) {
 				throw new Error("Failed to fetch food data.");
 			}
 			const data = await response.json();
-			setFoodData(data.meals || []); // Assuming 'meals' is the correct key for the list
+			setFoodData(data.meals || []);
 		} catch (err) {
 			setError(err.message);
 		} finally {
@@ -43,12 +51,12 @@ export function RecipeProvider({ children }) {
 		}
 	}, []);
 
-	// Fetch liked recipes separately
+	// Fetch liked recipes
 	useEffect(() => {
 		const fetchLikedRecipes = async () => {
 			try {
 				const response = await RecipeAPI.getAllLikedRecipes();
-				setLikedRecipes(response.data); // Assuming response.data contains the liked recipes
+				setLikedRecipes(response.data);
 			} catch (err) {
 				console.error("Failed to fetch liked recipes:", err);
 				setError(err.message);
@@ -58,16 +66,30 @@ export function RecipeProvider({ children }) {
 		fetchLikedRecipes();
 	}, []);
 
+	// like a recipe and insert it into the database
+	const likeRecipe = async (values) => {
+		try {
+			const response = await RecipeAPI.create(values);
+			setRecipes([...recipes, response]);
+			makeToast({ type: "success", message: "Added to Favourite" });
+		} catch (error) {
+			makeToast({ type: "error", message: "Please try again" });
+		}
+	};
+
 	return (
 		<RecipeContext.Provider
 			value={{
-				recipes,        // For recipe categories
-				likedRecipes,   // For liked recipes
-				setRecipes,     // Setter for categories (if needed)
-				foodData,       // Fetched food data
-				fetchFoodData,  // Method to fetch food data
-				isLoading,      // Loading state
-				error,          // Error state
+				recipes,
+				likedRecipes,
+				setRecipes,
+				foodData,
+				fetchFoodData,
+				isLoading,
+				error,
+				likeRecipe,
+				recipe,
+				setRecipe,
 			}}
 		>
 			{children}
@@ -76,4 +98,3 @@ export function RecipeProvider({ children }) {
 }
 
 export default RecipeContext;
-

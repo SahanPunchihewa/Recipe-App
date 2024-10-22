@@ -22,4 +22,3 @@ export const getLikedRecipe = async () => {
 			throw new Error(error.message);
 		});
 };
-
