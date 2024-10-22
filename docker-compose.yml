@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  frontend:
+    image: sahanpunchihewa19/assessment-frontend:dev
+    container_name: assessment-frontend
+    ports:
+      - "5173:5173"
+    env_file:
+      - ./frontend/.env
+    restart: always
+
+  backend:
+    image: sahanpunchihewa19/assessment-backend:dev
+    container_name: assessment-backend
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./backend/.env
+    restart: always
