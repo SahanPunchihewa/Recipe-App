@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import RecipeExternalContext from "../../contexts/RecipeExternalContext";
+import RecipeContext from "../../contexts/RecipeContext";
 import { Link } from "react-router-dom";
 
 // Define the categories with their details
@@ -14,7 +14,7 @@ const categoryData = [
 const categories = ["pork", "beef", "chicken", "lamb", "pasta"];
 
 const FoodItems = () => {
-	const { foodData, fetchFoodData, isLoading, error } = useContext(RecipeExternalContext);
+	const { foodData, fetchFoodData, isLoading, error } = useContext(RecipeContext);
 	const [selectedCategory, setSelectedCategory] = useState("pork");
 
 	// Fetch food data whenever the selected category changes

@@ -5,7 +5,7 @@ import CheckLoginStatus from "./CheckLoginStatus";
 
 import Header from "../components/Header";
 
-import { Login, Register, FoodItems } from "../pages";
+import { Login, Register, FoodItems, FavouriteFoods } from "../pages";
 
 const AppRoutes = () => {
 	return (
@@ -28,6 +28,7 @@ const AppRoutes = () => {
 					{/* User Private Routes */}
 					<Route path="/user" element={<PrivateRoute permissionLevel="USER" />}>
 						<Route path="/user/food-items" element={<FoodItems />} />
+						<Route path="/user/favourite-foods" element={<FavouriteFoods />} />
 					</Route>
 				</Routes>
 			</Router>
