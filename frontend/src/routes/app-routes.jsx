@@ -6,7 +6,7 @@ import Header from "../components/Header";
 
 import {
 
-    Home,
+    Login,
     Register,
     FoodItems,
 
@@ -19,8 +19,9 @@ const AppRoutes = () => {
     return (
         <>
             <Router>
+                    <Header />
                 <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route path="/" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/food-items" element={<FoodItems />} />
                 </Routes>
