@@ -8,6 +8,7 @@ const UserContext = createContext();
 export function UserProvider({ children }) {
 	const navigate = useNavigate();
 	const [mailError, setMailError] = useState("");
+	const [phoneError, setPhoneError] = useState("");
 	const [users, setUsers] = useState([]);
 	const [user, setUser] = useState({
 		firstName: "",
@@ -32,6 +33,24 @@ export function UserProvider({ children }) {
 		});
 	};
 
+	const register = (values) => {
+		UserAPI.register(values)
+			.then((response) => {
+				setUsers([...users, response.data]);
+				makeToast({ type: "success", message: "Registration Successful" });
+				navigate("/user/login");
+			})
+			.catch((err) => {
+				if (err.response.data.details == "Email already exists") {
+					setMailError(err.response.data.details);
+				} else if (err.response.data.details == "Phone numver already exists") {
+					setPhoneError(err.response.data.details);
+				} else {
+					makeToast({ type: "error", message: "Registration not success" });
+				}
+			});
+	};
+
 	return (
 		<UserContext.Provider
 			value={{
@@ -43,6 +62,9 @@ export function UserProvider({ children }) {
 				setUsers,
 				navigate,
 				login,
+				register,
+				phoneError,
+				setPhoneError,
 			}}
 		>
 			{children}
