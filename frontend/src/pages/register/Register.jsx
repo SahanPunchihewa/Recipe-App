@@ -13,7 +13,7 @@ const Register = () => {
 	let emailregext =
 		/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-	let contact = /^[0-9]{3} [0-9]{4} [0-9]{3}$/;
+		let contact = /^[0-9]{10}$/;
 
 	// Phone Validation
 	const checkPhone = () => {
@@ -159,7 +159,6 @@ const Register = () => {
 							id="phoneNumber"
 							className="peer mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm"
 							placeholder="011 2222 333"
-							pattern="[0-9]{3} [0-9]{4} [0-9]{3}"
 							required
 							onChange={() => {
 								checkPhone();
