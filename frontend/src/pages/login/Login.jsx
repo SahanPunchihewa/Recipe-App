@@ -49,7 +49,6 @@ const Login = () => {
 				</div>
 				<h2 className="text-2xl font-roboto mb-6">Login</h2>
 				<form onSubmit={handleSubmit} className="space-y-4">
-					{/* Email Input */}
 					<div className="relative">
 						<input
 							type="email"
@@ -69,7 +68,6 @@ const Login = () => {
 						<p className="mt-1 text-xs text-red-600">{emailError}</p>
 					</div>
 
-					{/* Password Input */}
 					<div className="relative">
 						<input
 							type="password"
