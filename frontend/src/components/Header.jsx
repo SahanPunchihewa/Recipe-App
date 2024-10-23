@@ -17,16 +17,9 @@ const Header = () => {
 		<>
 			{permissionLevel === "USER" ? (
 				<header className="flex justify-between items-center px-6 py-4 bg-gray-50 border-b">
-					{/* Left side: Logo */}
 					<div className="text-3xl font-bold text-pink-500">
-						<img
-							src="/logo.png" // Replace with your actual logo path
-							alt="Logo"
-							className="h-16" // Increased height for better visibility
-						/>
+						<img src="/logo.png" alt="Logo" className="h-16" />
 					</div>
-
-					{/* Center: Navigation Links */}
 					<nav className="space-x-8 text-sm font-medium">
 						<Link to="/user/food-items" className="hover:text-gray-700">
 							HOME
@@ -35,8 +28,6 @@ const Header = () => {
 							FAVOURITE
 						</Link>
 					</nav>
-
-					{/* Right side: Log-out Icon */}
 					<button className="text-gray-600 hover:text-black" onClick={logout}>
 						<ArrowRightOnRectangleIcon className="h-6 w-6" />
 					</button>
