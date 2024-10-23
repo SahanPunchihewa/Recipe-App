@@ -96,7 +96,7 @@ const Login = () => {
 							Sign In
 						</button>
 					</div>
-					<p className="text-center text-sm text-red-600">Your password or username is incorrect</p>
+					<p className="text-center text-sm text-red-600"></p>
 				</form>
 				<div className="mt-6 text-center">
 					<p className="text-sm">
