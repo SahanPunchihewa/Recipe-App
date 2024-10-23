@@ -27,6 +27,7 @@ export function UserProvider({ children }) {
 				localStorage.setItem("authToken", response.data.token);
 				makeToast({ type: "success", message: "Login Successful" });
 				navigate("/user/food-items");
+				window.location.reload();
 			} else {
 				makeToast({ type: "error", message: "Invalid email or password" });
 			}
