@@ -1,4 +1,4 @@
-# CodeSec-Global-Recipe-App
+# Recipe-App
 
 ## [How to Run Project]
 
